@@ -407,7 +407,7 @@
         import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
         import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js";
 
-        // --- CONFIGURATION ---
+        
         const API_URL = "https://script.google.com/macros/s/AKfycbyA74E5MJoFOupDteqIaA1XKpPFyx9SDdqr0a8KOh1I2uRGSBtbt5JoG7Gfhq8idRv--w/exec"; 
         const CLOUD_NAME = "dbxpn84zn"; 
         const UPLOAD_PRESET = "ml_preset"; 
@@ -433,7 +433,7 @@
         let adminMapInstance = null;
         let aiModel = null; 
 
-        // --- UX Functions ---
+        
         function setGreeting() {
             const h = new Date().getHours();
             const g = h < 12 ? "Good Morning" : h < 18 ? "Good Afternoon" : "Good Evening";
@@ -475,7 +475,7 @@
 
         document.addEventListener('DOMContentLoaded', () => { setGreeting(); typeWriter(); });
 
-        // --- AUTH & LOGIC ---
+        
         window.handleGoogleLogin = async () => {
             try {
                 const res = await signInWithPopup(auth, provider);
@@ -655,11 +655,11 @@
             } catch(err) { alert("Network Error"); } finally { btn.innerHTML = originalText; btn.disabled = false; }
         };
 
-        // --- UPDATED MAP LOGIC: USING GOOGLE HYBRID ---
+    
         function initMap() {
             if(mapInstance) return;
             mapInstance = L.map('map').setView(CAMPUS_CENTER, 16);
-            // Google Hybrid Tile Layer
+           
             L.tileLayer('http://{s}.google.com/vt/lyrs=y&x={x}&y={y}&z={z}',{
                 maxZoom: 20,
                 subdomains:['mt0','mt1','mt2','mt3']
@@ -679,7 +679,7 @@
             setTimeout(() => {
                 if(adminMapInstance) return;
                 adminMapInstance = L.map('adminMap').setView(CAMPUS_CENTER, 16);
-                // Google Hybrid Tile Layer for Admin
+              
                 L.tileLayer('http://{s}.google.com/vt/lyrs=y&x={x}&y={y}&z={z}',{
                     maxZoom: 20,
                     subdomains:['mt0','mt1','mt2','mt3']
